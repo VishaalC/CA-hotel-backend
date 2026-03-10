@@ -48,7 +48,7 @@ const adminLogin = async (username, password) => {
   const adminPassword = retrievedAdmin.password;
 
   if (!(await bcrypt.compare(password, adminPassword))) {
-    throw new UnAuthorizedError(HTTP_MESSAGES.UNAUTHORIZED);
+    throw new UnAuthorizedError(EXCEPTION_CONSTANTS.USERNAME_PASSWORD_INCORRECT);
   }
   return commonUtils.generateJWTToken(
     commonUtils.getSafeAdmin(retrievedAdmin.toObject()),

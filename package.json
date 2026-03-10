@@ -2,10 +2,10 @@
   "name": "ca-hotel-backend",
   "version": "1.0.0",
   "type": "module",
-  "description": "��#\u0000 \u0000C\u0000A\u0000-\u0000h\u0000o\u0000t\u0000e\u0000l\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000#\u0000 \u0000C\u0000A\u0000-\u0000h\u0000o\u0000t\u0000e\u0000l\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
+  "description": "ca-hotel-backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
@@ -31,6 +31,7 @@
     "prettier": "^3.8.1"
   },
   "devDependencies": {
-    "@types/express": "^5.0.6"
+    "@types/express": "^5.0.6",
+    "jest": "^30.3.0"
   }
 }

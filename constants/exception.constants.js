@@ -8,5 +8,6 @@ export const EXCEPTION_CONSTANTS = {
   HOTEL_NOT_FOUND: "Hotel With The Provided ID Not Found",
   INVALID_BODY_FIELD: "Request Body Contains Invalid Field Parameter",
   INVALID_PATH_PARAM: "Invalid path parameter",
-  ADMIN_WITH_USERNAME_NOT_EXIST: "Admin with the provided username does not exist"
+  ADMIN_WITH_USERNAME_NOT_EXIST: "Admin with the provided username does not exist",
+  USERNAME_PASSWORD_INCORRECT: "Username or Password does not match"
 };
