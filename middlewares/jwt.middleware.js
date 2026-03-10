@@ -10,13 +10,12 @@ import jwt from "jsonwebtoken";
  * @param next
  */
 export const validateJWTToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+  const token = req.cookies.token;
 
-  if (!authHeader) {
+  if (!token) {
     throw new UnAuthorizedError(EXCEPTION_CONSTANTS.MISSING_BEARER);
   }
 
-  const token = authHeader.split(" ")[1];
   jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
     if (err) {
       throw new UnAuthorizedError(err.message);

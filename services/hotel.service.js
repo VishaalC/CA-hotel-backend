@@ -48,7 +48,7 @@ const addHotel = async (hotelName, address) => {
  * @param {JSON} updatedHotelObject - JSON object of the updated hotel
  */
 const editHotel = async (hotelId, updatedHotelObject) => {
-    const updatedHotel = await Hotel.findByIdAndUpdate(hotelId, { $set: updatedHotelObject }, { returnDocument: after, runValidators: true });  
+    const updatedHotel = await Hotel.findByIdAndUpdate(hotelId, { $set: updatedHotelObject }, { returnDocument: "after", runValidators: true });  
     if (!updatedHotel) {
         throw new BadRequestError(EXCEPTION_CONSTANTS.HOTEL_NOT_FOUND);
     }

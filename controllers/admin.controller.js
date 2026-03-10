@@ -29,6 +29,11 @@ const login = async (req, res) => {
     req.body.username,
     req.body.password,
   );
+  res.cookie("token", logInUser, {
+    httpOnly: true,
+    secure: false,
+    maxAge: 60 * 60 * 1000
+  });
   sendResponse(
     res,
     HTTP_MESSAGES.SUCCESS_OK,

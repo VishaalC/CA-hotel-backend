@@ -41,13 +41,15 @@ const createAdmin = async (username, password) => {
  * @param {string} password - plaintext password of the admin
  */
 const adminLogin = async (username, password) => {
-  const retrievedAdmin = await User.findOne({ username: username }).exec();
-  const adminPassword = retrievedAdmin.toObject().password;
+  const retrievedAdmin = await User.findOne({ username: username });
+  if (!retrievedAdmin) {
+    throw new UnAuthorizedError(EXCEPTION_CONSTANTS.ADMIN_WITH_USERNAME_NOT_EXIST);
+  }
+  const adminPassword = retrievedAdmin.password;
 
   if (!(await bcrypt.compare(password, adminPassword))) {
     throw new UnAuthorizedError(HTTP_MESSAGES.UNAUTHORIZED);
   }
-
   return commonUtils.generateJWTToken(
     commonUtils.getSafeAdmin(retrievedAdmin.toObject()),
   );
